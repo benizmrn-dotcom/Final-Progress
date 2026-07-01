@@ -136,10 +136,6 @@ module "ssm" {
   mail_username     = var.mail_username
   mail_password     = var.mail_password
   mail_from_address = var.mail_from_address
-
-  stripe_key = var.stripe_key
-  stripe_secret = var.stripe_secret
-
 }
 module "ecs" {
   source                      = "../../modules/ecs"
