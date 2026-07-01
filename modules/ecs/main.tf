@@ -180,11 +180,11 @@ environment = [
       },
       {
         name      = "STRIPE_KEY"
-        valueFrom = "myapp/${var.env}/STRIPE_KEY"
+        valueFrom = "/myapp/${var.env}/STRIPE_KEY"
       },
             {
         name      = "STRIPE_SECRET"
-        valueFrom = "myapp/${var.env}/STRIPE_SECRET"
+        valueFrom = "/myapp/${var.env}/STRIPE_SECRET"
       }
     ]
   }
