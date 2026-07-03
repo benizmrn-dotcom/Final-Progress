@@ -1,0 +1,55 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform/
+.terraform.lock.hcl
+crash.log
+crash.*.log
+*.pem
+*.key
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.tfvars
+
+# Laravel
+/vendor/
+/node_modules/
+npm-debug.log
+yarn-error.log
+.env
+.env.local
+.env.*.local
+.DS_Store
+/storage/logs/
+/bootstrap/cache/
+.phpunit.result.cache
+auth.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Docker
+docker-compose.override.yml
+
+# Build artifacts
+dist/
+build/
+
+# Local development
+.env.local
+.env.*.local
