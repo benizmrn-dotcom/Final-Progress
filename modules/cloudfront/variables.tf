@@ -1,21 +1,21 @@
 variable "env" {
-    type = string
-  
+  type = string
+
 }
 
 variable "alb_dns_name" {
-    type = string
-  
+  type = string
+
 }
 
 variable "web_acl_arn" {
-    type = string
-  
+  type = string
+
 }
 
 variable "acm_certificate_arn" {
-    type = string
-  
+  type = string
+
 }
 
 variable "app_domain_name" {

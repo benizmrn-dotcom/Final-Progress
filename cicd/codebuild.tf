@@ -4,7 +4,7 @@ resource "aws_codebuild_project" "app" {
   service_role = aws_iam_role.codebuild.arn
 
   source {
-    type      = "CODEPIPELINE"
+    type = "CODEPIPELINE"
   }
 
   artifacts {
@@ -149,8 +149,8 @@ resource "aws_iam_role_policy" "codebuild_passrole" {
     Version = "2012-10-17"
     Statement = [
       {
-        Effect = "Allow"
-        Action = "iam:PassRole"
+        Effect   = "Allow"
+        Action   = "iam:PassRole"
         Resource = "*"
       }
     ]

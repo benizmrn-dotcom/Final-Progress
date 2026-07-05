@@ -26,7 +26,7 @@ resource "aws_codepipeline" "app" {
       output_artifacts = ["source_output"]
 
       configuration = {
-        ConnectionArn = var.codestar_connection_arn
+        ConnectionArn    = var.codestar_connection_arn
         FullRepositoryId = "benizmrn-dotcom/nagoyameshi"
         BranchName       = var.branch
       }
@@ -81,14 +81,14 @@ resource "aws_codepipeline" "app" {
 #S3_for_artifact
 #
 resource "aws_s3_bucket" "artifacts" {
-bucket = "${var.env}-${var.project_name}-pipeline-artifacts"
+  bucket = "${var.env}-${var.project_name}-pipeline-artifacts"
 }
 
 #
 #IAM
 #
 resource "aws_iam_role" "codepipeline" {
-name = "${var.env}-${var.project_name}-codepipeline-role"
+  name = "${var.env}-${var.project_name}-codepipeline-role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -125,20 +125,20 @@ resource "aws_iam_role_policy" "codepipeline" {
         Resource = "*"
       },
 
-        {
+      {
         Effect = "Allow",
         Action = [
-            "ecs:*",
-            ],
+          "ecs:*",
+        ],
         Resource = "*"
-        },
-        {
+      },
+      {
         Effect = "Allow"
         Action = [
-            "iam:PassRole"
+          "iam:PassRole"
         ]
         Resource = "*"
-        },
+      },
 
       {
         Effect = "Allow"

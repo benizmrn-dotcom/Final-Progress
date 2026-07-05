@@ -133,9 +133,8 @@ module "ssm" {
   mail_username     = var.mail_username
   mail_password     = var.mail_password
   mail_from_address = var.mail_from_address
-
-  stripe_key = var.stripe_key
-  stripe_secret = var.stripe_secret
+  stripe_key        = var.stripe_key
+  stripe_secret     = var.stripe_secret
 }
 
 module "ecs" {
@@ -153,7 +152,7 @@ module "ecs" {
   app_image = aws_ecr_repository.app.repository_url
   app_url   = "https://benizmrnuehara.com"
 
-  desired_count = 1
+  desired_count = 2
 
   db_database = module.rds.db_name
 }

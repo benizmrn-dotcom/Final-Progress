@@ -16,5 +16,5 @@ output "username" {
 
 output "password" {
   value = "password"
-  
+
 }

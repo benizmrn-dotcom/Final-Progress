@@ -16,7 +16,7 @@ variable "codestar_connection_arn" {
 
 variable "env" {
   type = string
-  
+
 }
 
 variable "subnets" {
@@ -29,15 +29,15 @@ variable "ecs_sg_id" {
 
 variable "cluster_name" {
   type = string
-  
+
 }
 
 variable "service_name" {
   type = string
-  
+
 }
 
 variable "branch" {
   type = string
-  
+
 }

@@ -69,10 +69,10 @@ variable "mail_from_address" {
 
 variable "stripe_key" {
   type = string
-  
+
 }
 
 variable "stripe_secret" {
   type = string
-  
+
 }

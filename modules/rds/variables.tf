@@ -13,7 +13,7 @@ variable "db_username" {
 
 variable "env" {
   type = string
-  
+
 }
 
 variable "project_name" {
