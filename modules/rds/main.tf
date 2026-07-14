@@ -17,7 +17,7 @@ resource "aws_db_instance" "this" {
 
   db_name                   = var.db_name
   username                  = var.db_username
-  password                  = "password"
+  password                  = var.db_password
   vpc_security_group_ids    = [var.rds_sg_id]
   db_subnet_group_name      = aws_db_subnet_group.this.name
   multi_az                  = true

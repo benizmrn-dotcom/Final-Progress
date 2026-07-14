@@ -26,18 +26,22 @@ resource "aws_internet_gateway" "igw" {
 #NAT_Gateway
 ############
 resource "aws_eip" "nat" {
+  count = length(var.public_subnets)
+
   domain = "vpc"
 
   tags = {
-    Name = "${var.env}-nat-eip"
+    Name = "${var.env}-nat-eip-${count.index}"
   }
 }
 resource "aws_nat_gateway" "nat" {
-  allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.public[0].id
+  count = length(var.public_subnets)
+
+  allocation_id = aws_eip.nat[count.index].id
+  subnet_id     = aws_subnet.public[count.index].id
 
   tags = {
-    Name = "${var.env}-nat"
+    Name = "${var.env}-nat-${count.index}"
   }
 
   depends_on = [aws_internet_gateway.igw]
@@ -99,20 +103,22 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_route_table" "private" {
+  count = length(var.private_subnets)
+
   vpc_id = aws_vpc.vpc.id
 
   route {
     cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.nat.id
+    nat_gateway_id = aws_nat_gateway.nat[count.index].id
   }
 
   tags = {
-    Name = "${var.env}-private-rt"
+    Name = "${var.env}-private-rt-${count.index}"
   }
 }
 resource "aws_route_table_association" "private" {
   count = length(var.private_subnets)
 
   subnet_id      = aws_subnet.private[count.index].id
-  route_table_id = aws_route_table.private.id
+  route_table_id = aws_route_table.private[count.index].id
 }

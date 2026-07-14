@@ -23,3 +23,7 @@ variable "project_name" {
 variable "rds_sg_id" {
   type = string
 }
+
+variable "db_password" {
+  type = string
+}

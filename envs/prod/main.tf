@@ -117,6 +117,7 @@ module "rds" {
   private_subnet_ids = module.vpc.private_subnets
   project_name       = var.project_name
   rds_sg_id          = module.sg.rds_sg_id
+  db_password         = var.db_password
 }
 
 module "ssm" {
